@@ -15,6 +15,42 @@ import pynbody
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 
+# Set a font
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.size'] = 10.0
+
+plt.rcParams['legend.handlelength']  = 0.5
+plt.rcParams['legend.frameon']       = False
+plt.rcParams['legend.numpoints']     = 1
+plt.rcParams['legend.scatterpoints'] = 1
+
+# Adjust axes line width
+plt.rcParams['axes.linewidth']   = 0.5
+
+# Adjust ticks
+plt.rcParams['xtick.major.size'] = 4
+plt.rcParams['xtick.minor.size'] = 2
+plt.rcParams['ytick.major.size'] = 4
+plt.rcParams['ytick.minor.size'] = 2
+
+# Adjust Font Size
+plt.rcParams['xtick.labelsize']  = 'x-small'
+plt.rcParams['ytick.labelsize']  = 'x-small'
+plt.rcParams['axes.labelsize']   = 'small'
+
+# Set Up Figure, Single Column MNRAS
+fig = plt.gcf()
+ax = plt.gca()
+fig, ax = plt.subplots(1,1)
+
+# Plot two plots in one (w,h)
+fig.set_size_inches(8.27*0.5,8.27*(10./13.)*0.5)
+fig.set_size_inches(8.27*0.39,8.27*(10./13.)*0.39)
+
+dot_size = 1.5
+line_width_thin =  0.001
+line_width_thick = 0.1
+
 # Chose your filename here
 # the filename is from the keyboard
 # assert sys.argv[1]
@@ -60,14 +96,18 @@ print(den[idx])
 #plt.ylim((-15e0,15e0))
 
 # Make a scatter plot
-plt.scatter(x[idx], y[idx], s=1, c=den[idx], cmap=plt.cm.rainbow)
+ax.set_axisbelow(True)
+plt.grid()
 
-plt.colorbar()
+plt.scatter(x[idx], y[idx], s=dot_size, c=den[idx], cmap=plt.cm.rainbow, linewidth=line_width_thin)
 
-plt.xlabel("x [R$_{\oplus}$]")
-plt.ylabel("y [R$_{\oplus}$]")
+#cbar = plt.colorbar()
+#plt.colorbar()
 
-plt.title("M-ANEOS")
+#plt.xlabel("x [R$_{\oplus}$]")
+#plt.ylabel("y [R$_{\oplus}$]")
+
+#plt.title("M-ANEOS")
 #plt.legend(loc='best')
 
 plt.savefig(filename+".png", dpi=300, bbox_inches='tight')
