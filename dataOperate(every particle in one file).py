@@ -32,7 +32,8 @@ print(config)
 # Get all file 
 #dataDir = "./snapshot1"
 files = os.listdir(config.dataDir)
-files.sort()
+# sort the file according to the number
+files.sort(key = lambda x : int(x[9:-5]))
 
 # find the group of the hdf5 file
 def get_hdf5_group(hdf5File):
