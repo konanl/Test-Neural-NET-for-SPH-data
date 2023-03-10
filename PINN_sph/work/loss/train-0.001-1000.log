@@ -1,0 +1,13 @@
+
+Start Train .....
+
+Elapsed [0:02:16], Iteration [100/1000], PINNs/loss: 9.26e-06
+Elapsed [0:04:30], Iteration [200/1000], PINNs/loss: 4.77e-06
+Elapsed [0:06:46], Iteration [300/1000], PINNs/loss: 3.72e-06
+Elapsed [0:09:02], Iteration [400/1000], PINNs/loss: 2.74e-06
+Elapsed [0:11:18], Iteration [500/1000], PINNs/loss: 1.96e-06
+Elapsed [0:13:32], Iteration [600/1000], PINNs/loss: 1.34e-06
+Elapsed [0:15:46], Iteration [700/1000], PINNs/loss: 9.68e-07
+Elapsed [0:18:00], Iteration [800/1000], PINNs/loss: 6.06e-07
+Elapsed [0:20:14], Iteration [900/1000], PINNs/loss: 3.77e-07
+Elapsed [0:22:27], Iteration [1000/1000], PINNs/loss: 2.64e-07

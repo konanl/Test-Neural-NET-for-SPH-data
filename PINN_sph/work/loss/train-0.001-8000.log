@@ -1,0 +1,6 @@
+
+Start Train .....
+
+Elapsed [0:22:52], Iteration [1000/8000], PINNs/loss: 8.49e-08
+Elapsed [0:45:41], Iteration [2000/8000], PINNs/loss: 6.06e-08
+Elapsed [1:08:37], Iteration [3000/8000], PINNs/loss: 4.16e-08
