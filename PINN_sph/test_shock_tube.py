@@ -17,6 +17,7 @@ import random
 import time
 from tqdm import tqdm
 from torch.utils.data import Dataset, DataLoader
+import matplotlib.pyplot as plt
 
 
 # Seeds
@@ -102,7 +103,7 @@ class ShockTubeSodPINN(PINNs):
         y_ic = self.net(x_ic)
         rho_ic, u_ic, p_ic = x[1], x[2], x[3]
 
-        rho_ic_nn, u_ic_nn, p_ic_nn = y_ic[:, 0:1], y_ic[:, 1:2], y_ic[:, 2:3]
+        rho_ic_nn, u_ic_nn, p_ic_nn = y_ic[:, 0], y_ic[:, 1], y_ic[:, 2]
 
         # Loss function for the initial condition
         loss_ics = ((u_ic_nn - u_ic) ** 2).mean() + \
@@ -133,10 +134,10 @@ def IC(x):
 def gen_traindata(num):
     """Generate the train data for One-Dim Shock Tube."""
     num_x = num
-    num_t = num
+    num_t = num * 2
     num_i_train = num
-    num_f_train = num**2
-    x = np.linspace(-1.5, 3.125, num_x)
+    num_f_train = 11000 # num * num + num // 10
+    x = np.linspace(0, 1, num_x)
     t = np.linspace(0, 0.2, num_t)
     t_grid, x_grid = np.meshgrid(t, x)
     T = t_grid.flatten()[:, None]
@@ -158,10 +159,25 @@ def gen_traindata(num):
     return x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train, x_test
 
 
-def get_loader(data, mode='train', batch_size=32, num_workers=1):
+def get_loader(data, mode='train', batch_size=32, num_workers=1, pack=False):
     """Build and return a data loader."""
-    dataset = DatasetShockTube(data)
-    data_loader = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=(mode == 'train'), num_workers=num_workers)
+    if pack:
+        dataset = DatasetShockTube(data)
+        data_loader = DataLoader(dataset=dataset,
+                                 batch_size=batch_size,
+                                 shuffle=(mode == 'train'),
+                                 num_workers=num_workers)
+    else:
+        # [x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train]
+        x_ic_train = torch.tensor(data[0], dtype=torch.float32).to(device)
+        x_int_train = torch.tensor(data[1], requires_grad=True, dtype=torch.float32).to(device)
+        # x_test = torch.tensor(x_test, dtype=torch.float32).to(device)
+
+        rho_ic_train = torch.tensor(data[2], dtype=torch.float32).to(device)
+        u_ic_train = torch.tensor(data[3], dtype=torch.float32).to(device)
+        p_ic_train = torch.tensor(data[4], dtype=torch.float32).to(device)
+
+        data_loader = [x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train]
     return data_loader
 
 
@@ -196,9 +212,11 @@ def loss(x, model):
     return EQLoss_f, EQLoss_ic
 
 
-def train(data_loader, model, num_epochs, lr):
-    """Train the model."""
+def train(data_loader, model, num_epochs, lr, loader_enable=False):
+    """Train the model.(简化版)"""
+    model.train()
     optimizer = optim.Adam(params=model.net.parameters(), lr=lr, betas=(0.9, 0.999))
+    # optimizer = optim.SGD(params=model.net.parameters(), lr=lr)
     start_epoch = 0
     print("\nStart Train .....\n")
     start_time = time.time()
@@ -208,9 +226,15 @@ def train(data_loader, model, num_epochs, lr):
             tepochs.set_description(f"Epoch {epoch + 1}")
 
             # train data
-            data_iter = iter(data_loader)
-            x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train = next(data_iter)
-            x_int_train.requires_grad = True
+            if loader_enable:
+                data_iter = iter(data_loader)
+                x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train = next(data_iter)
+                x_int_train.requires_grad = True
+            else:
+                x_int_train = data_loader[1]
+                x_ic_train, rho_ic_train, u_ic_train, p_ic_train = data_loader[0], data_loader[2], \
+                                                                   data_loader[3], data_loader[4]
+
             x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train = x_ic_train.to(device), \
                                                                             x_int_train.to(device), \
                                                                             rho_ic_train.to(device), \
@@ -220,10 +244,14 @@ def train(data_loader, model, num_epochs, lr):
             # Compute loss
             loss_sum = 0
 
-            EQLoss_f, EQLoss_ic = loss([x_int_train, x_ic_train, rho_ic_train, u_ic_train, p_ic_train], model)
+            # EQLoss_f, EQLoss_ic = loss([x_int_train, x_ic_train, rho_ic_train, u_ic_train, p_ic_train], model)
+            EQLoss_f, EQLoss_ic = model.equation(x_int_train), model.loss_ic([x_ic_train,
+                                                                              rho_ic_train,
+                                                                              u_ic_train,
+                                                                              p_ic_train])
 
-            w_ic, w_f = 10, 0.1
-            EQLoss = w_ic * torch.mean(torch.square(EQLoss_ic)) + w_f * torch.mean(torch.square(EQLoss_f))
+            w_ic, w_f = 10, 1
+            EQLoss = w_ic * EQLoss_ic + w_f * EQLoss_f
 
             EQLoss.backward()
             optimizer.step()
@@ -237,7 +265,7 @@ def train(data_loader, model, num_epochs, lr):
             loss_['PINNs/loss_ic'] = np.mean(np.square(EQLoss_ic.item()))
 
             # Save loss information
-            log_step = 100
+            log_step = 2000
             # log_dir = './work/loss'
             if (epoch + 1) % log_step == 0:
                 loss_save_path = os.path.join(
@@ -249,7 +277,7 @@ def train(data_loader, model, num_epochs, lr):
                 torch.save(loss_, loss_save_path)
 
             # Print out training information.
-            if (epoch + 1) % log_step == 0:
+            if (epoch + 1) % (log_step // 10) == 0:
                 et = time.time() - start_time
                 et = str(datetime.timedelta(seconds=et))[:-7]
                 log = "\nElapsed [{}], Iteration [{}/{}]".format(et, epoch + 1, num_epochs)
@@ -259,7 +287,7 @@ def train(data_loader, model, num_epochs, lr):
                 print(log)
 
             # Save model checkpoints.
-            model_save_step = 500
+            model_save_step = 2000
             # model_save_dir = "./model"
             if (epoch + 1) % model_save_step == 0:
                 path = os.path.join(model_save_dir, '{}-pinn.ckpt'.format(epoch + 1))
@@ -277,6 +305,7 @@ def train(data_loader, model, num_epochs, lr):
 
 
 def inference(X, model, resume_epochs, model_save_dir):
+    model.eval()
     """Predicting trained model."""
     if not isinstance(X, torch.Tensor):
         X = torch.tensor(X, dtype=torch.float32, requires_grad=True)
@@ -286,41 +315,47 @@ def inference(X, model, resume_epochs, model_save_dir):
     return y_pred
 
 
-def main(num_epochs=500, lr=1e-3, test=False):
+def main(num_epochs=6000, lr=1e-3, test=False):
     """Train main function."""
 
     # generate data
     x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train, x_test = gen_traindata(1000)
 
-    # build dataloader
+    # build dataloader with torch.utils.data.Dataloader
+    # data_loader = get_loader([x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train], batch_size=1)
+
+    # build dataloader with numpy and convert to Tensor
     data_loader = get_loader([x_ic_train, x_int_train, rho_ic_train, u_ic_train, p_ic_train])
 
     # train
     ## training params
 
-    sys.stdout = Logger(
-        os.path.join(
-            log_dir,
-            'train-{}-{}.log'.format(
-                # "NN" if config.net_type == 'pinn' else "gNN, w={}".format(config.g_weight),
-                lr,
-                num_epochs,
-            )
-        ),
-        sys.stdout
-    )
+    if not test:
+        sys.stdout = Logger(
+            os.path.join(
+                log_dir,
+                'train-{}-{}.log'.format(
+                    # "NN" if config.net_type == 'pinn' else "gNN, w={}".format(config.g_weight),
+                    lr,
+                    num_epochs,
+                )
+            ),
+            sys.stdout
+        )
 
     # model
     layers = [2] + [30] * 7 + [3]
     net = FCNet(layers)
     thock_tube_model = ShockTubeSodPINN(net).to(device)
+    print("The model is build like:\n")
+    summary(thock_tube_model)
 
     if not test:
         train(data_loader, thock_tube_model, num_epochs, lr)
 
     if test:
         # predict
-        import matplotlib.pyplot as plt
+        # import matplotlib.pyplot as plt
 
         a = np.loadtxt("./data/shock_tube/SPHBody_WaveBody_0000201640.txt")
         x_test = a[:, 0:1]
@@ -329,13 +364,14 @@ def main(num_epochs=500, lr=1e-3, test=False):
         input_test = torch.tensor(input_test, dtype=torch.float32).to(device)
 
         # x_test = torch.tensor(x_test, dtype=torch.float32).to(device)
-        y_pred = inference(input_test, thock_tube_model, 500, "./model/shock_tube")
+        y_pred = inference(input_test, thock_tube_model, 6000, "./model/shock_tube")
 
         plt.title("PINN Predict")
         plt.xlabel("x")
         # plt.plot(x_test.cpu().detach().numpy()[:, 0:1], y_pred.cpu().detach().numpy()[:, 1:2], ":", label='velocity')
-        plt.plot(x_test, y_pred.cpu().detach().numpy()[:, 1:2], ":", label='velocity')
-        plt.plot(x_test, y_pred.cpu().detach().numpy()[:, 2:3], label='pressure')
+        plt.plot(x_test, y_pred.cpu().detach().numpy()[:, 1:2], ":", label='u')
+        plt.plot(x_test, y_pred.cpu().detach().numpy()[:, 2:3], label='p')
+        plt.plot(x_test, y_pred.cpu().detach().numpy()[:, 0:1], "--", label='rho')
         plt.legend(loc='best')
 
         # save name.
@@ -352,6 +388,4 @@ if __name__ == '__main__':
     device = get_default_device()
     print("Currently available resources: {}".format(device))
 
-    main()
-
-
+    main(test=True)

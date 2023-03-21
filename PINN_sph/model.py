@@ -10,6 +10,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torchinfo import summary
 
 # 引力常数 - m^3/(kg*s^2)
 G = 6.67408e-11
@@ -116,5 +117,7 @@ class GravityNet(nn.Module):
 
 if __name__ == '__main__':
 
-    net = FCNet([1] + [20]*3 + [1])
-    print_network(net, 'FCNet')
+    pass
+
+    # net = FCNet([1] + [20]*3 + [1])
+    # print_network(net, 'FCNet')

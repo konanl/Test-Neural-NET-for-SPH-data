@@ -1,0 +1,234 @@
+The model is build like:
+
+=================================================================
+Layer (type:depth-idx)                   Param #
+=================================================================
+ShockTubeSodPINN                         --
+©À©¤FCNet: 1-1                             --
+©¦    ©¸©¤Tanh: 2-1                         --
+©¦    ©¸©¤Sequential: 2-2                   --
+©¦    ©¦    ©¸©¤Linear: 3-1                  90
+©¦    ©¦    ©¸©¤Tanh: 3-2                    --
+©¦    ©¦    ©¸©¤Linear: 3-3                  930
+©¦    ©¦    ©¸©¤Tanh: 3-4                    --
+©¦    ©¦    ©¸©¤Linear: 3-5                  930
+©¦    ©¦    ©¸©¤Tanh: 3-6                    --
+©¦    ©¦    ©¸©¤Linear: 3-7                  930
+©¦    ©¦    ©¸©¤Tanh: 3-8                    --
+©¦    ©¦    ©¸©¤Linear: 3-9                  930
+©¦    ©¦    ©¸©¤Tanh: 3-10                   --
+©¦    ©¦    ©¸©¤Linear: 3-11                 930
+©¦    ©¦    ©¸©¤Tanh: 3-12                   --
+©¦    ©¦    ©¸©¤Linear: 3-13                 930
+©¦    ©¦    ©¸©¤Tanh: 3-14                   --
+©¦    ©¦    ©¸©¤Linear: 3-15                 93
+=================================================================
+Total params: 5,763
+Trainable params: 5,763
+Non-trainable params: 0
+=================================================================
+
+Start Train .....
+
+
+Elapsed [0:00:19], Iteration [10/1000], PINNs/loss: 4.89e+00, PINNs/loss_f: 1.20e-01, PINNs/loss_ic: 4.77e-01
+
+Elapsed [0:00:36], Iteration [20/1000], PINNs/loss: 1.12e+00, PINNs/loss_f: 6.93e-03, PINNs/loss_ic: 1.12e-01
+
+Elapsed [0:00:54], Iteration [30/1000], PINNs/loss: 1.62e+00, PINNs/loss_f: 4.68e-05, PINNs/loss_ic: 1.62e-01
+
+Elapsed [0:01:11], Iteration [40/1000], PINNs/loss: 2.43e+00, PINNs/loss_f: 4.81e-05, PINNs/loss_ic: 2.43e-01
+
+Elapsed [0:01:29], Iteration [50/1000], PINNs/loss: 6.87e+00, PINNs/loss_f: 8.97e-06, PINNs/loss_ic: 6.87e-01
+
+Elapsed [0:01:46], Iteration [60/1000], PINNs/loss: 1.89e+00, PINNs/loss_f: 3.16e-07, PINNs/loss_ic: 1.89e-01
+
+Elapsed [0:02:04], Iteration [70/1000], PINNs/loss: 2.36e+00, PINNs/loss_f: 3.19e-06, PINNs/loss_ic: 2.36e-01
+
+Elapsed [0:02:21], Iteration [80/1000], PINNs/loss: 1.28e+00, PINNs/loss_f: 6.22e-06, PINNs/loss_ic: 1.28e-01
+
+Elapsed [0:02:39], Iteration [90/1000], PINNs/loss: 6.83e-01, PINNs/loss_f: 2.51e-05, PINNs/loss_ic: 6.83e-02
+
+Elapsed [0:02:56], Iteration [100/1000], PINNs/loss: 4.27e-01, PINNs/loss_f: 1.66e-05, PINNs/loss_ic: 4.27e-02
+
+Elapsed [0:03:14], Iteration [110/1000], PINNs/loss: 2.70e+00, PINNs/loss_f: 1.80e-06, PINNs/loss_ic: 2.70e-01
+
+Elapsed [0:03:31], Iteration [120/1000], PINNs/loss: 1.71e+00, PINNs/loss_f: 1.19e-07, PINNs/loss_ic: 1.71e-01
+
+Elapsed [0:03:49], Iteration [130/1000], PINNs/loss: 1.32e+00, PINNs/loss_f: 6.07e-06, PINNs/loss_ic: 1.32e-01
+
+Elapsed [0:04:06], Iteration [140/1000], PINNs/loss: 1.03e+00, PINNs/loss_f: 4.33e-06, PINNs/loss_ic: 1.03e-01
+
+Elapsed [0:04:24], Iteration [150/1000], PINNs/loss: 4.52e+00, PINNs/loss_f: 3.68e-07, PINNs/loss_ic: 4.52e-01
+
+Elapsed [0:04:41], Iteration [160/1000], PINNs/loss: 1.26e+00, PINNs/loss_f: 1.03e-05, PINNs/loss_ic: 1.26e-01
+
+Elapsed [0:04:59], Iteration [170/1000], PINNs/loss: 1.09e+00, PINNs/loss_f: 9.42e-06, PINNs/loss_ic: 1.09e-01
+
+Elapsed [0:05:16], Iteration [180/1000], PINNs/loss: 5.35e-01, PINNs/loss_f: 1.85e-04, PINNs/loss_ic: 5.35e-02
+
+Elapsed [0:05:34], Iteration [190/1000], PINNs/loss: 4.52e-01, PINNs/loss_f: 6.50e-05, PINNs/loss_ic: 4.51e-02
+
+Elapsed [0:05:51], Iteration [200/1000], PINNs/loss: 1.48e+00, PINNs/loss_f: 5.66e-06, PINNs/loss_ic: 1.48e-01
+
+Elapsed [0:06:09], Iteration [210/1000], PINNs/loss: 1.57e+00, PINNs/loss_f: 8.06e-06, PINNs/loss_ic: 1.57e-01
+
+Elapsed [0:06:27], Iteration [220/1000], PINNs/loss: 5.21e-01, PINNs/loss_f: 2.15e-04, PINNs/loss_ic: 5.21e-02
+
+Elapsed [0:06:45], Iteration [230/1000], PINNs/loss: 4.61e-01, PINNs/loss_f: 1.91e-04, PINNs/loss_ic: 4.61e-02
+
+Elapsed [0:07:03], Iteration [240/1000], PINNs/loss: 1.99e+00, PINNs/loss_f: 5.38e-05, PINNs/loss_ic: 1.99e-01
+
+Elapsed [0:07:22], Iteration [250/1000], PINNs/loss: 1.19e+00, PINNs/loss_f: 8.53e-05, PINNs/loss_ic: 1.19e-01
+
+Elapsed [0:07:40], Iteration [260/1000], PINNs/loss: 1.11e+00, PINNs/loss_f: 2.09e-04, PINNs/loss_ic: 1.11e-01
+
+Elapsed [0:07:58], Iteration [270/1000], PINNs/loss: 7.53e-01, PINNs/loss_f: 7.85e-05, PINNs/loss_ic: 7.53e-02
+
+Elapsed [0:08:17], Iteration [280/1000], PINNs/loss: 4.26e-01, PINNs/loss_f: 3.59e-04, PINNs/loss_ic: 4.25e-02
+
+Elapsed [0:08:35], Iteration [290/1000], PINNs/loss: 1.33e+00, PINNs/loss_f: 2.70e-04, PINNs/loss_ic: 1.33e-01
+
+Elapsed [0:08:53], Iteration [300/1000], PINNs/loss: 7.28e-01, PINNs/loss_f: 2.94e-05, PINNs/loss_ic: 7.28e-02
+
+Elapsed [0:09:12], Iteration [310/1000], PINNs/loss: 2.58e+00, PINNs/loss_f: 1.61e-05, PINNs/loss_ic: 2.58e-01
+
+Elapsed [0:09:30], Iteration [320/1000], PINNs/loss: 4.29e-01, PINNs/loss_f: 3.26e-05, PINNs/loss_ic: 4.29e-02
+
+Elapsed [0:09:48], Iteration [330/1000], PINNs/loss: 7.04e-01, PINNs/loss_f: 4.86e-05, PINNs/loss_ic: 7.03e-02
+
+Elapsed [0:10:06], Iteration [340/1000], PINNs/loss: 4.13e-01, PINNs/loss_f: 3.29e-05, PINNs/loss_ic: 4.13e-02
+
+Elapsed [0:10:25], Iteration [350/1000], PINNs/loss: 4.46e-01, PINNs/loss_f: 9.40e-05, PINNs/loss_ic: 4.46e-02
+
+Elapsed [0:10:43], Iteration [360/1000], PINNs/loss: 4.15e-01, PINNs/loss_f: 6.19e-06, PINNs/loss_ic: 4.15e-02
+
+Elapsed [0:11:01], Iteration [370/1000], PINNs/loss: 9.90e-01, PINNs/loss_f: 1.03e-03, PINNs/loss_ic: 9.89e-02
+
+Elapsed [0:11:19], Iteration [380/1000], PINNs/loss: 4.45e-01, PINNs/loss_f: 3.33e-04, PINNs/loss_ic: 4.45e-02
+
+Elapsed [0:11:38], Iteration [390/1000], PINNs/loss: 2.63e+00, PINNs/loss_f: 3.59e-04, PINNs/loss_ic: 2.63e-01
+
+Elapsed [0:11:56], Iteration [400/1000], PINNs/loss: 5.01e-01, PINNs/loss_f: 2.86e-05, PINNs/loss_ic: 5.01e-02
+
+Elapsed [0:12:14], Iteration [410/1000], PINNs/loss: 5.48e-01, PINNs/loss_f: 1.03e-04, PINNs/loss_ic: 5.48e-02
+
+Elapsed [0:12:32], Iteration [420/1000], PINNs/loss: 1.00e+00, PINNs/loss_f: 2.68e-05, PINNs/loss_ic: 1.00e-01
+
+Elapsed [0:12:50], Iteration [430/1000], PINNs/loss: 6.71e-01, PINNs/loss_f: 3.79e-05, PINNs/loss_ic: 6.71e-02
+
+Elapsed [0:13:08], Iteration [440/1000], PINNs/loss: 7.17e-01, PINNs/loss_f: 2.00e-04, PINNs/loss_ic: 7.17e-02
+
+Elapsed [0:13:27], Iteration [450/1000], PINNs/loss: 5.70e-01, PINNs/loss_f: 5.07e-05, PINNs/loss_ic: 5.70e-02
+
+Elapsed [0:13:45], Iteration [460/1000], PINNs/loss: 4.13e-01, PINNs/loss_f: 1.25e-03, PINNs/loss_ic: 4.12e-02
+
+Elapsed [0:14:02], Iteration [470/1000], PINNs/loss: 5.16e-01, PINNs/loss_f: 7.07e-04, PINNs/loss_ic: 5.15e-02
+
+Elapsed [0:14:20], Iteration [480/1000], PINNs/loss: 6.11e-01, PINNs/loss_f: 5.44e-05, PINNs/loss_ic: 6.11e-02
+
+Elapsed [0:14:37], Iteration [490/1000], PINNs/loss: 9.28e-01, PINNs/loss_f: 3.18e-04, PINNs/loss_ic: 9.27e-02
+
+Elapsed [0:14:54], Iteration [500/1000], PINNs/loss: 8.34e-01, PINNs/loss_f: 1.56e-05, PINNs/loss_ic: 8.34e-02
+Saved model checkpoints into ./model/shock_tube...
+
+Elapsed [0:15:12], Iteration [510/1000], PINNs/loss: 4.54e-01, PINNs/loss_f: 3.14e-04, PINNs/loss_ic: 4.53e-02
+
+Elapsed [0:15:29], Iteration [520/1000], PINNs/loss: 6.77e-01, PINNs/loss_f: 1.69e-05, PINNs/loss_ic: 6.77e-02
+
+Elapsed [0:15:47], Iteration [530/1000], PINNs/loss: 7.58e-01, PINNs/loss_f: 1.80e-05, PINNs/loss_ic: 7.58e-02
+
+Elapsed [0:16:04], Iteration [540/1000], PINNs/loss: 4.12e-01, PINNs/loss_f: 3.21e-04, PINNs/loss_ic: 4.11e-02
+
+Elapsed [0:16:22], Iteration [550/1000], PINNs/loss: 4.61e-01, PINNs/loss_f: 7.49e-04, PINNs/loss_ic: 4.60e-02
+
+Elapsed [0:16:39], Iteration [560/1000], PINNs/loss: 5.16e-01, PINNs/loss_f: 1.37e-04, PINNs/loss_ic: 5.16e-02
+
+Elapsed [0:16:56], Iteration [570/1000], PINNs/loss: 4.74e-01, PINNs/loss_f: 1.96e-03, PINNs/loss_ic: 4.72e-02
+
+Elapsed [0:17:14], Iteration [580/1000], PINNs/loss: 5.54e-01, PINNs/loss_f: 4.51e-05, PINNs/loss_ic: 5.54e-02
+
+Elapsed [0:17:32], Iteration [590/1000], PINNs/loss: 6.78e-01, PINNs/loss_f: 1.89e-05, PINNs/loss_ic: 6.78e-02
+
+Elapsed [0:17:50], Iteration [600/1000], PINNs/loss: 9.83e-01, PINNs/loss_f: 1.87e-05, PINNs/loss_ic: 9.83e-02
+
+Elapsed [0:18:07], Iteration [610/1000], PINNs/loss: 4.86e-01, PINNs/loss_f: 3.14e-05, PINNs/loss_ic: 4.85e-02
+
+Elapsed [0:18:25], Iteration [620/1000], PINNs/loss: 4.26e-01, PINNs/loss_f: 2.67e-03, PINNs/loss_ic: 4.23e-02
+
+Elapsed [0:18:42], Iteration [630/1000], PINNs/loss: 4.21e-01, PINNs/loss_f: 5.78e-05, PINNs/loss_ic: 4.21e-02
+
+Elapsed [0:19:00], Iteration [640/1000], PINNs/loss: 4.14e-01, PINNs/loss_f: 7.86e-05, PINNs/loss_ic: 4.14e-02
+
+Elapsed [0:19:17], Iteration [650/1000], PINNs/loss: 4.71e-01, PINNs/loss_f: 2.61e-04, PINNs/loss_ic: 4.71e-02
+
+Elapsed [0:19:34], Iteration [660/1000], PINNs/loss: 4.15e-01, PINNs/loss_f: 3.78e-05, PINNs/loss_ic: 4.15e-02
+
+Elapsed [0:19:52], Iteration [670/1000], PINNs/loss: 5.45e-01, PINNs/loss_f: 2.37e-04, PINNs/loss_ic: 5.44e-02
+
+Elapsed [0:20:09], Iteration [680/1000], PINNs/loss: 4.14e-01, PINNs/loss_f: 9.71e-04, PINNs/loss_ic: 4.13e-02
+
+Elapsed [0:20:27], Iteration [690/1000], PINNs/loss: 4.20e-01, PINNs/loss_f: 7.20e-04, PINNs/loss_ic: 4.19e-02
+
+Elapsed [0:20:44], Iteration [700/1000], PINNs/loss: 4.44e-01, PINNs/loss_f: 1.54e-02, PINNs/loss_ic: 4.29e-02
+
+Elapsed [0:21:02], Iteration [710/1000], PINNs/loss: 6.29e-01, PINNs/loss_f: 5.95e-04, PINNs/loss_ic: 6.28e-02
+
+Elapsed [0:21:19], Iteration [720/1000], PINNs/loss: 1.52e+00, PINNs/loss_f: 3.33e-04, PINNs/loss_ic: 1.52e-01
+
+Elapsed [0:21:37], Iteration [730/1000], PINNs/loss: 1.06e+00, PINNs/loss_f: 9.91e-05, PINNs/loss_ic: 1.06e-01
+
+Elapsed [0:21:54], Iteration [740/1000], PINNs/loss: 4.16e-01, PINNs/loss_f: 1.66e-03, PINNs/loss_ic: 4.14e-02
+
+Elapsed [0:22:12], Iteration [750/1000], PINNs/loss: 4.32e-01, PINNs/loss_f: 2.62e-03, PINNs/loss_ic: 4.29e-02
+
+Elapsed [0:22:29], Iteration [760/1000], PINNs/loss: 8.30e-01, PINNs/loss_f: 7.10e-04, PINNs/loss_ic: 8.29e-02
+
+Elapsed [0:22:46], Iteration [770/1000], PINNs/loss: 6.20e-01, PINNs/loss_f: 2.35e-04, PINNs/loss_ic: 6.20e-02
+
+Elapsed [0:23:04], Iteration [780/1000], PINNs/loss: 4.20e-01, PINNs/loss_f: 8.19e-04, PINNs/loss_ic: 4.19e-02
+
+Elapsed [0:23:21], Iteration [790/1000], PINNs/loss: 5.81e-01, PINNs/loss_f: 2.42e-04, PINNs/loss_ic: 5.80e-02
+
+Elapsed [0:23:39], Iteration [800/1000], PINNs/loss: 5.96e-01, PINNs/loss_f: 1.81e-04, PINNs/loss_ic: 5.96e-02
+
+Elapsed [0:23:56], Iteration [810/1000], PINNs/loss: 4.13e-01, PINNs/loss_f: 1.66e-03, PINNs/loss_ic: 4.11e-02
+
+Elapsed [0:24:14], Iteration [820/1000], PINNs/loss: 4.30e-01, PINNs/loss_f: 1.00e-03, PINNs/loss_ic: 4.29e-02
+
+Elapsed [0:24:31], Iteration [830/1000], PINNs/loss: 4.62e-01, PINNs/loss_f: 5.66e-05, PINNs/loss_ic: 4.62e-02
+
+Elapsed [0:24:49], Iteration [840/1000], PINNs/loss: 4.87e-01, PINNs/loss_f: 4.95e-03, PINNs/loss_ic: 4.82e-02
+
+Elapsed [0:25:06], Iteration [850/1000], PINNs/loss: 5.13e-01, PINNs/loss_f: 2.22e-03, PINNs/loss_ic: 5.11e-02
+
+Elapsed [0:25:24], Iteration [860/1000], PINNs/loss: 8.37e-01, PINNs/loss_f: 1.67e-01, PINNs/loss_ic: 6.70e-02
+
+Elapsed [0:25:41], Iteration [870/1000], PINNs/loss: 1.26e+00, PINNs/loss_f: 1.26e-05, PINNs/loss_ic: 1.26e-01
+
+Elapsed [0:25:59], Iteration [880/1000], PINNs/loss: 7.54e-01, PINNs/loss_f: 2.77e-04, PINNs/loss_ic: 7.53e-02
+
+Elapsed [0:26:17], Iteration [890/1000], PINNs/loss: 9.55e-01, PINNs/loss_f: 7.73e-05, PINNs/loss_ic: 9.55e-02
+
+Elapsed [0:26:35], Iteration [900/1000], PINNs/loss: 7.39e-01, PINNs/loss_f: 1.11e-04, PINNs/loss_ic: 7.39e-02
+
+Elapsed [0:26:52], Iteration [910/1000], PINNs/loss: 3.42e+00, PINNs/loss_f: 1.57e-03, PINNs/loss_ic: 3.42e-01
+
+Elapsed [0:27:10], Iteration [920/1000], PINNs/loss: 4.94e-01, PINNs/loss_f: 7.99e-04, PINNs/loss_ic: 4.94e-02
+
+Elapsed [0:27:27], Iteration [930/1000], PINNs/loss: 4.12e-01, PINNs/loss_f: 1.23e-03, PINNs/loss_ic: 4.11e-02
+
+Elapsed [0:27:45], Iteration [940/1000], PINNs/loss: 5.86e-01, PINNs/loss_f: 1.30e-03, PINNs/loss_ic: 5.85e-02
+
+Elapsed [0:28:02], Iteration [950/1000], PINNs/loss: 7.66e-01, PINNs/loss_f: 1.88e-04, PINNs/loss_ic: 7.65e-02
+
+Elapsed [0:28:20], Iteration [960/1000], PINNs/loss: 8.65e-01, PINNs/loss_f: 7.23e-05, PINNs/loss_ic: 8.65e-02
+
+Elapsed [0:28:37], Iteration [970/1000], PINNs/loss: 2.64e+00, PINNs/loss_f: 5.11e-03, PINNs/loss_ic: 2.63e-01
+
+Elapsed [0:28:55], Iteration [980/1000], PINNs/loss: 7.55e-01, PINNs/loss_f: 8.12e-04, PINNs/loss_ic: 7.54e-02
+
+Elapsed [0:29:12], Iteration [990/1000], PINNs/loss: 6.40e-01, PINNs/loss_f: 1.80e-04, PINNs/loss_ic: 6.40e-02
+
+Elapsed [0:29:30], Iteration [1000/1000], PINNs/loss: 4.21e-01, PINNs/loss_f: 6.02e-03, PINNs/loss_ic: 4.15e-02
+Saved model checkpoints into ./model/shock_tube...

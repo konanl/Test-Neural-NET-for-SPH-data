@@ -1,0 +1,116 @@
+The model is build like:
+
+=================================================================
+Layer (type:depth-idx)                   Param #
+=================================================================
+ShockTubeSodPINN                         --
+©À©¤FCNet: 1-1                             --
+©¦    ©¸©¤Tanh: 2-1                         --
+©¦    ©¸©¤Sequential: 2-2                   --
+©¦    ©¦    ©¸©¤Linear: 3-1                  90
+©¦    ©¦    ©¸©¤Tanh: 3-2                    --
+©¦    ©¦    ©¸©¤Linear: 3-3                  930
+©¦    ©¦    ©¸©¤Tanh: 3-4                    --
+©¦    ©¦    ©¸©¤Linear: 3-5                  930
+©¦    ©¦    ©¸©¤Tanh: 3-6                    --
+©¦    ©¦    ©¸©¤Linear: 3-7                  930
+©¦    ©¦    ©¸©¤Tanh: 3-8                    --
+©¦    ©¦    ©¸©¤Linear: 3-9                  930
+©¦    ©¦    ©¸©¤Tanh: 3-10                   --
+©¦    ©¦    ©¸©¤Linear: 3-11                 930
+©¦    ©¦    ©¸©¤Tanh: 3-12                   --
+©¦    ©¦    ©¸©¤Linear: 3-13                 930
+©¦    ©¦    ©¸©¤Tanh: 3-14                   --
+©¦    ©¦    ©¸©¤Linear: 3-15                 93
+=================================================================
+Total params: 5,763
+Trainable params: 5,763
+Non-trainable params: 0
+=================================================================
+
+Start Train .....
+
+
+Elapsed [0:00:09], Iteration [200/8000], PINNs/loss: 7.87e-02, PINNs/loss_f: 4.71e-03, PINNs/loss_ic: 7.40e-03
+
+Elapsed [0:00:16], Iteration [400/8000], PINNs/loss: 3.54e-02, PINNs/loss_f: 2.34e-03, PINNs/loss_ic: 3.31e-03
+
+Elapsed [0:00:24], Iteration [600/8000], PINNs/loss: 2.04e-02, PINNs/loss_f: 1.78e-03, PINNs/loss_ic: 1.86e-03
+
+Elapsed [0:00:31], Iteration [800/8000], PINNs/loss: 1.32e-02, PINNs/loss_f: 1.48e-03, PINNs/loss_ic: 1.17e-03
+
+Elapsed [0:00:39], Iteration [1000/8000], PINNs/loss: 8.20e-03, PINNs/loss_f: 8.70e-04, PINNs/loss_ic: 7.33e-04
+
+Elapsed [0:00:46], Iteration [1200/8000], PINNs/loss: 5.40e-03, PINNs/loss_f: 5.41e-04, PINNs/loss_ic: 4.86e-04
+
+Elapsed [0:00:54], Iteration [1400/8000], PINNs/loss: 3.94e-03, PINNs/loss_f: 4.16e-04, PINNs/loss_ic: 3.52e-04
+
+Elapsed [0:01:02], Iteration [1600/8000], PINNs/loss: 3.06e-03, PINNs/loss_f: 3.36e-04, PINNs/loss_ic: 2.73e-04
+
+Elapsed [0:01:09], Iteration [1800/8000], PINNs/loss: 2.48e-03, PINNs/loss_f: 2.78e-04, PINNs/loss_ic: 2.20e-04
+
+Elapsed [0:01:16], Iteration [2000/8000], PINNs/loss: 2.06e-03, PINNs/loss_f: 2.34e-04, PINNs/loss_ic: 1.82e-04
+Saved model checkpoints into ./model/shock_tube...
+
+Elapsed [0:01:24], Iteration [2200/8000], PINNs/loss: 1.73e-03, PINNs/loss_f: 2.00e-04, PINNs/loss_ic: 1.53e-04
+
+Elapsed [0:01:31], Iteration [2400/8000], PINNs/loss: 1.48e-03, PINNs/loss_f: 1.74e-04, PINNs/loss_ic: 1.30e-04
+
+Elapsed [0:01:38], Iteration [2600/8000], PINNs/loss: 1.27e-03, PINNs/loss_f: 1.56e-04, PINNs/loss_ic: 1.12e-04
+
+Elapsed [0:01:46], Iteration [2800/8000], PINNs/loss: 1.11e-03, PINNs/loss_f: 1.41e-04, PINNs/loss_ic: 9.66e-05
+
+Elapsed [0:01:53], Iteration [3000/8000], PINNs/loss: 9.69e-04, PINNs/loss_f: 1.28e-04, PINNs/loss_ic: 8.42e-05
+
+Elapsed [0:02:01], Iteration [3200/8000], PINNs/loss: 8.56e-04, PINNs/loss_f: 1.17e-04, PINNs/loss_ic: 7.39e-05
+
+Elapsed [0:02:08], Iteration [3400/8000], PINNs/loss: 7.62e-04, PINNs/loss_f: 1.08e-04, PINNs/loss_ic: 6.54e-05
+
+Elapsed [0:02:16], Iteration [3600/8000], PINNs/loss: 6.85e-04, PINNs/loss_f: 1.01e-04, PINNs/loss_ic: 5.84e-05
+
+Elapsed [0:02:23], Iteration [3800/8000], PINNs/loss: 6.21e-04, PINNs/loss_f: 9.49e-05, PINNs/loss_ic: 5.26e-05
+
+Elapsed [0:02:30], Iteration [4000/8000], PINNs/loss: 5.67e-04, PINNs/loss_f: 8.97e-05, PINNs/loss_ic: 4.77e-05
+Saved model checkpoints into ./model/shock_tube...
+
+Elapsed [0:02:38], Iteration [4200/8000], PINNs/loss: 5.21e-04, PINNs/loss_f: 8.49e-05, PINNs/loss_ic: 4.36e-05
+
+Elapsed [0:02:46], Iteration [4400/8000], PINNs/loss: 4.82e-04, PINNs/loss_f: 8.04e-05, PINNs/loss_ic: 4.01e-05
+
+Elapsed [0:02:53], Iteration [4600/8000], PINNs/loss: 4.47e-04, PINNs/loss_f: 7.60e-05, PINNs/loss_ic: 3.71e-05
+
+Elapsed [0:03:01], Iteration [4800/8000], PINNs/loss: 4.16e-04, PINNs/loss_f: 7.23e-05, PINNs/loss_ic: 3.44e-05
+
+Elapsed [0:03:08], Iteration [5000/8000], PINNs/loss: 3.88e-04, PINNs/loss_f: 6.90e-05, PINNs/loss_ic: 3.19e-05
+
+Elapsed [0:03:16], Iteration [5200/8000], PINNs/loss: 3.63e-04, PINNs/loss_f: 6.61e-05, PINNs/loss_ic: 2.97e-05
+
+Elapsed [0:03:23], Iteration [5400/8000], PINNs/loss: 3.41e-04, PINNs/loss_f: 6.35e-05, PINNs/loss_ic: 2.77e-05
+
+Elapsed [0:03:30], Iteration [5600/8000], PINNs/loss: 3.20e-04, PINNs/loss_f: 6.16e-05, PINNs/loss_ic: 2.59e-05
+
+Elapsed [0:03:37], Iteration [5800/8000], PINNs/loss: 3.02e-04, PINNs/loss_f: 6.01e-05, PINNs/loss_ic: 2.42e-05
+
+Elapsed [0:03:44], Iteration [6000/8000], PINNs/loss: 2.86e-04, PINNs/loss_f: 5.89e-05, PINNs/loss_ic: 2.27e-05
+Saved model checkpoints into ./model/shock_tube...
+
+Elapsed [0:03:52], Iteration [6200/8000], PINNs/loss: 2.72e-04, PINNs/loss_f: 5.76e-05, PINNs/loss_ic: 2.15e-05
+
+Elapsed [0:03:59], Iteration [6400/8000], PINNs/loss: 2.59e-04, PINNs/loss_f: 5.61e-05, PINNs/loss_ic: 2.03e-05
+
+Elapsed [0:04:07], Iteration [6600/8000], PINNs/loss: 2.46e-04, PINNs/loss_f: 5.42e-05, PINNs/loss_ic: 1.92e-05
+
+Elapsed [0:04:14], Iteration [6800/8000], PINNs/loss: 6.30e+02, PINNs/loss_f: 5.73e+02, PINNs/loss_ic: 5.67e+00
+
+Elapsed [0:04:22], Iteration [7000/8000], PINNs/loss: 1.12e+02, PINNs/loss_f: 7.25e+01, PINNs/loss_ic: 3.98e+00
+
+Elapsed [0:04:29], Iteration [7200/8000], PINNs/loss: 7.33e+01, PINNs/loss_f: 3.81e+01, PINNs/loss_ic: 3.52e+00
+
+Elapsed [0:04:37], Iteration [7400/8000], PINNs/loss: 5.65e+01, PINNs/loss_f: 2.47e+01, PINNs/loss_ic: 3.19e+00
+
+Elapsed [0:04:45], Iteration [7600/8000], PINNs/loss: 4.68e+01, PINNs/loss_f: 1.75e+01, PINNs/loss_ic: 2.92e+00
+
+Elapsed [0:04:52], Iteration [7800/8000], PINNs/loss: 4.01e+01, PINNs/loss_f: 1.31e+01, PINNs/loss_ic: 2.70e+00
+
+Elapsed [0:04:59], Iteration [8000/8000], PINNs/loss: 3.51e+01, PINNs/loss_f: 1.02e+01, PINNs/loss_ic: 2.49e+00
+Saved model checkpoints into ./model/shock_tube...
