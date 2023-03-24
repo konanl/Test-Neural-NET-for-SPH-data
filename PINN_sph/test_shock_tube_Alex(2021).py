@@ -120,9 +120,9 @@ def to_numpy(input):
 # Initial conditions
 def IC(x):
     N = len(x)
-    rho_init = np.zeros((x.shape[0]))                                              # rho - initial condition
-    u_init = np.zeros((x.shape[0]))                                                # u - initial condition
-    p_init = np.zeros((x.shape[0]))                                                # p - initial condition
+    rho_init = np.zeros((x.shape[0]))
+    u_init = np.zeros((x.shape[0]))
+    p_init = np.zeros((x.shape[0]))
 
     # rho, p - initial condition
     for i in range(N):

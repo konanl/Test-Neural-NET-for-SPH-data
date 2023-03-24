@@ -63,3 +63,13 @@ def restore_model(model, resume_epochs, model_save_dir):
     model.net.load_state_dict(torch.load(path))
     print("Success load model with epoch {} !!!".format(resume_epochs))
 
+
+# Convert torch tensor into np.array
+def to_numpy(input):
+    if isinstance(input, torch.Tensor):
+        return input.detach().cpu().numpy()
+    elif isinstance(input, np.ndarray):
+        return input
+    else:
+        raise TypeError('Unknown type of input, expected torch.Tensor or ' \
+                        'np.ndarray, but got {}'.format(type(input)))
